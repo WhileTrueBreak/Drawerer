@@ -57,6 +57,7 @@ public class Drawerer extends RoboticsAPIApplication{
 	@Override
 	public void initialize() {
 		
+		//init force touch condition
 		touch = ForceCondition.createSpatialForceCondition(gripper.getFrame("/TCP"), 10);
 		
 		// Initializes the boing boing
@@ -187,7 +188,7 @@ public class Drawerer extends RoboticsAPIApplication{
 	}
 	
 	private void safeMove(RobotMotion<?> motion) {
-		IMotionContainer motionContainer = gripper.move(motion.setJointVelocityRel(0.2).breakWhen(touch));
+		IMotionContainer motionContainer = gripper.move(motion.breakWhen(touch));
 		if(motionContainer != null) {
 			logger.error("Touched something on safe move");
 			while(true);
