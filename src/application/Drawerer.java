@@ -198,14 +198,14 @@ public class Drawerer extends RoboticsAPIApplication{
 		logger.info(String.format("Origin: %s", origin.toString()));
 
 		logger.info("Moving to bottom left");
-		gripper.move(ptp(getApplicationData().getFrame("/bottom_left")).setJointVelocityRel(0.2));
+		gripper.move(lin(getApplicationData().getFrame("/bottom_left")).setJointVelocityRel(0.2));
 		gripper.move(linRel(0, 40, 0).setJointVelocityRel(0.2));
 		logger.info("Calibrating point 2");
 		Vector3D up = frameToVector(calibrateFrame(gripper));
 		logger.info(String.format("Up: %s", up.toString()));
 
 		logger.info("Moving to bottom left");
-		gripper.move(ptp(getApplicationData().getFrame("/bottom_left")).setJointVelocityRel(0.2));
+		gripper.move(lin(getApplicationData().getFrame("/bottom_left")).setJointVelocityRel(0.2));
 		gripper.move(linRel(-40, 0,0).setJointVelocityRel(0.2));
 		logger.info("Calibrating point 3");
 		Vector3D right = frameToVector(calibrateFrame(gripper));
@@ -273,7 +273,7 @@ public class Drawerer extends RoboticsAPIApplication{
 		}
 		
 		logger.info("Moving to base");
-		gripper.move(ptp(getApplicationData().getFrame("/bottom_left")).setJointVelocityRel(0.2));
+		gripper.move(lin(getApplicationData().getFrame("/bottom_left")).setJointVelocityRel(0.2));
 		mF.setLEDBlue(true);
 	}
 }
