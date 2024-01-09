@@ -183,8 +183,6 @@ public class Drawerer extends RoboticsAPIApplication{
 		return totalDist;
 	}
 	
-	//test
-	
 	IMotionContainer m1;
 	@Override
 	public void run() throws Exception {
