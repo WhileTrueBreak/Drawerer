@@ -156,9 +156,10 @@ public class Drawerer extends RoboticsAPIApplication{
 	}
 
 	private Spline framesToSpline(Frame[] frames){
-		SPL[] splines = new SPL[frames.length];
+		SPL[] splines = new SPL[frames.length*2];
 		for (int i=0;i<frames.length;i++){
-			splines[i] = spl(frames[i]);
+			splines[i*2] = spl(frames[i]);
+			splines[i*2+1] = spl(frames[i]);
 		}
 
 		return new Spline(splines);
