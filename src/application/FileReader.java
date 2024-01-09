@@ -28,7 +28,12 @@ public class FileReader{
     public static String findUniqueFolder(String folder) throws IOException {
     	File dir = new File(".");
     	List<String> path = findUniqueFolderRecursive(folder, dir);
-		return String.join("//", path);
+    	String pathString = "";
+    	for(int i = path.size()-1;i >= 0;i--) {
+    		pathString += path.get(i);
+    		if(i != 0) pathString += "/";
+    	}
+		return pathString;
     }
     
     private static List<String> findUniqueFolderRecursive(String folder, File dir) throws IOException {
@@ -40,6 +45,7 @@ public class FileReader{
 				System.out.println(file.getAbsolutePath());
 				List<String> path = new ArrayList<String>();
 				path.add(file.getName());
+				path.add(dir.getName());
 				return path;
 			}
 			List<String> pathList = findUniqueFolderRecursive(folder, file);
