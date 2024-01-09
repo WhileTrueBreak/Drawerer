@@ -271,8 +271,9 @@ public class Drawerer extends RoboticsAPIApplication{
 			logger.info("Finished path");
 			penUp();
 		}
-
+		
+		logger.info("Moving to base");
+		gripper.move(ptp(getApplicationData().getFrame("/bottom_left")).setJointVelocityRel(0.2));
 		mF.setLEDBlue(true);
-		//		ThreadUtil.milliSleep(120000);
 	}
 }
