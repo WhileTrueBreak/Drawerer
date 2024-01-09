@@ -207,7 +207,11 @@ public class Drawerer extends RoboticsAPIApplication{
 		// Calibration sequence
 		mF.setLEDBlue(true);
 		logger.info("Moving to bottom left");
-		safeMove(ptp(getApplicationData().getFrame("/bottom_left")).setJointVelocityRel(0.2));
+		try {
+			safeMove(lin(getApplicationData().getFrame("/bottom_left")).setJointVelocityRel(0.2));
+		} catch (Exception e) {
+			safeMove(ptp(getApplicationData().getFrame("/bottom_left")).setJointVelocityRel(0.2));
+		}
 		logger.info("Calibrating point 1");
 		Frame originFrame = calibrateFrame(gripper);
 		penUp();
