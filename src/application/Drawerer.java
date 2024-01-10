@@ -298,6 +298,7 @@ public class Drawerer extends RoboticsAPIApplication{
 		
 		logger.info("Moving to base");
 		gripper.move(lin(originUpFrame).setJointVelocityRel(0.2));
+		penUp();
 		mF.setLEDBlue(true);
 	}
 }
