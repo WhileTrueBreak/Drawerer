@@ -123,12 +123,10 @@ public class Drawerer extends RoboticsAPIApplication{
 	}
 
 	private void penUp(){
-		logger.info("Moving Pen Up");
 		gripper.move(linRel(0,0, -20).setJointVelocityRel(0.2));
 	}
 	
 	private void penDown(){
-		logger.info("Moving Pen Down");
 		gripper.move(linRel(0, 0, 30).setMode(springRobot).setCartVelocity(20));
 	}
 	
@@ -301,6 +299,7 @@ public class Drawerer extends RoboticsAPIApplication{
 		while(splineIterator.hasNext()){
 			int index = splineIterator.nextIndex();
 			logger.info("Start path "+index);
+			logger.info("Path nodes: "+paths.get(index).size());
 			Vector3D first = canvasToWorld(paths.get(index).get(0), canvas, size).add(origin);
 			logger.info("Moving to first frame");
 			gripper.move(lin(vectorToFrame(first, originFrame)).setCartVelocity(300));
