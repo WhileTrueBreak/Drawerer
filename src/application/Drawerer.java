@@ -71,7 +71,7 @@ public class Drawerer extends RoboticsAPIApplication{
 		// Set stiffness
 
 		// TODO: Stiff in every direction except plane perpendicular to flange
-		springRobot.parametrize(CartDOF.X).setStiffness(2500);
+		springRobot.parametrize(CartDOF.X).setStiffness(1500);
 		springRobot.parametrize(CartDOF.Y).setStiffness(5000);
 		springRobot.parametrize(CartDOF.Z).setStiffness(5000);
 
@@ -271,7 +271,7 @@ public class Drawerer extends RoboticsAPIApplication{
 		Spline[] splines = new Spline[paths.size()];
 		
 		logger.info("Creating Spline");
-		Vector3D v = Vector3D.of(40,0,0);
+		Vector3D v = Vector3D.of(10,0,0);
 		for (int i=0;i<paths.size();i++){
 			Frame[] tempFrames = new Frame[paths.get(i).size()];
 			for (int j=0;j<paths.get(i).size();j++) {
