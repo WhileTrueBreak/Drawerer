@@ -197,14 +197,17 @@ public class Drawerer extends RoboticsAPIApplication{
 		Vector3D moveVector = normDir.multiply(moveDist);
 		double totalDist = 0;
 		while(true) {
+			logger.info(moveVector.toString());
 			try {
 				gripper.move(motion.breakWhen(breakNow));
 				break;
 			} catch (Exception e) {
+				logger.info("unable to move, moving to next");
 				try {
 					gripper.move(linRel(moveVector.getY(), moveVector.getZ(), moveVector.getX()).setCartVelocity(100));
 					totalDist += moveDist;
 				} catch (Exception e2) {
+					logger.info("error no valid motion");
 					return -1;
 				}
 			}
