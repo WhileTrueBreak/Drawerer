@@ -94,7 +94,7 @@ public class Drawerer extends RoboticsAPIApplication{
 		ThreadUtil.milliSleep(200);
 	}
 
-	public List<List<Vector2D>> getPathsFromString(String pathString){
+	public List<List<Vector2D>> getPathsFromString(String pathString, double canvasSize){
 		String[] pathStrings = pathString.split("\\|");
 		List<String[]> coordStrings = new ArrayList<String[]>();
 		for(String string:pathStrings) {
@@ -114,7 +114,7 @@ public class Drawerer extends RoboticsAPIApplication{
 					lastCoord = coord;
 				}
 				double dist = coord.subtract(lastCoord).length();
-				if(dist < 1) continue;
+				if(dist < 1/canvasSize) continue;
 
 				path.add(coord);
 				lastCoord = coord;
@@ -282,7 +282,7 @@ public class Drawerer extends RoboticsAPIApplication{
 			logger.info("File is invalid");
 			return;
 		}
-		List<List<Vector2D>> paths = getPathsFromString(file.get(0));
+		List<List<Vector2D>> paths = getPathsFromString(file.get(0), size);
 		logger.info(String.format("Paths: %d", paths.size()));
 		Spline[] splines = new Spline[paths.size()];
 		
