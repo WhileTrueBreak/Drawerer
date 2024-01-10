@@ -111,7 +111,7 @@ public class Drawerer extends RoboticsAPIApplication{
 					lastCoord = coord;
 				}
 				double dist = coord.subtract(lastCoord).length();
-				if(dist < 1/canvasSize) continue;
+				if(dist < 2/canvasSize) continue;
 
 				path.add(coord);
 				lastCoord = coord;
@@ -174,7 +174,7 @@ public class Drawerer extends RoboticsAPIApplication{
 			}
 			Vector3D pos = frameToVector(frames[i]);
 			double dist = pos.subtract(lastPos).length();
-			motions[i] = dist < 5 ? spl(frames[i]) : lin(frames[i]);
+			motions[i] = dist < 10 ? spl(frames[i]) : lin(frames[i]);
 			lastPos = pos;
 		}
 
