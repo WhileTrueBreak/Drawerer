@@ -132,7 +132,7 @@ public class Drawerer extends RoboticsAPIApplication{
 	
 	private void penDown(){
 		logger.info("Moving Pen Down");
-		gripper.move(linRel(0, 0, 15).setMode(springRobot).setCartVelocity(20));
+		gripper.move(linRel(0, 0, 30).setMode(springRobot).setCartVelocity(20));
 	}
 	
 	private Frame calibrateFrame(Tool grip){
