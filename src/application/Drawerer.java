@@ -272,7 +272,7 @@ public class Drawerer extends RoboticsAPIApplication{
 		double dist = maxMove(diag);
 		logger.info(String.format("Found max at top right: %s", diag.toString()));
 		
-		double backDist = moveUntilAble(diag.multiply(-1), linRel(0,0,40));
+		double backDist = moveUntilAble(diag.multiply(-1), linRel(0,0,40).setCartVelocity(10));
 		dist -= backDist;
 		
 		// gets top right frame
