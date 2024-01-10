@@ -167,7 +167,7 @@ public class Drawerer extends RoboticsAPIApplication{
 	}
 
 	private void springyMove(Spline path){
-		int vel = 40;
+		int vel = 80;
 		gripper.move(path.setMode(springRobot).setCartVelocity(vel));
 	}
 	
