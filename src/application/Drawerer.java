@@ -271,7 +271,7 @@ public class Drawerer extends RoboticsAPIApplication{
 		Spline[] splines = new Spline[paths.size()];
 		
 		logger.info("Creating Spline");
-		Vector3D v = Vector3D.of(0,0,25);
+		Vector3D v = Vector3D.of(0,0,40);
 		for (int i=0;i<paths.size();i++){
 			Frame[] tempFrames = new Frame[paths.get(i).size()];
 			for (int j=0;j<paths.get(i).size();j++) {
