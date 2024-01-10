@@ -171,7 +171,7 @@ public class Drawerer extends RoboticsAPIApplication{
 	
 	private double maxMove(Vector3D dir) {
 		Vector3D normDir = dir.normalize();
-		double moveThresh = 100;
+		double moveThresh = 10;
 		double moveDist = 1000;
 		double totalDist = 0;
 		Vector3D moveVector = normDir.multiply(moveDist);
