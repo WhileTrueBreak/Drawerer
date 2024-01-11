@@ -220,13 +220,20 @@ public class Drawerer extends RoboticsAPIApplication{
 		gripper.move(new LIN(RobotController.vectorToFrame(p1.add(RobotController.frameToVector(originUpFrame)), originUpFrame)));
 
 		double bcd = p1.subtract(p2).length();
+		gripper.move(new LIN(RobotController.vectorToFrame(p1.add(RobotController.frameToVector(originUpFrame)), originUpFrame)).setCartVelocity(100));
 		
-		IMotionContainer m1 = 
-				gripper.move(new LIN(RobotController.vectorToFrame(p1.add(RobotController.frameToVector(originUpFrame)), originUpFrame)).setCartVelocity(100));
 		IMotionContainer m2	= 
-				gripper.moveAsync(new LIN(RobotController.vectorToFrame(p2.add(RobotController.frameToVector(originUpFrame)), originUpFrame)).setCartVelocity(100).setBlendingCart(bcd));
+				gripper.moveAsync(
+						new LIN(RobotController.vectorToFrame(
+								p2.add(RobotController.frameToVector(originUpFrame)), originUpFrame))
+						.setCartVelocity(100)
+						.setBlendingCart(bcd));
+		
 		IMotionContainer m3	= 
-				gripper.moveAsync(new LIN(RobotController.vectorToFrame(p3.add(RobotController.frameToVector(originUpFrame)), originUpFrame)).setCartVelocity(100));
+				gripper.moveAsync(
+						new LIN(RobotController.vectorToFrame(
+								p3.add(RobotController.frameToVector(originUpFrame)), originUpFrame))
+						.setCartVelocity(100));
 		
 		m2.await();
 		m3.await();
