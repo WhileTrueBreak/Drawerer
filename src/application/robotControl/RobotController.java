@@ -94,11 +94,13 @@ public class RobotController {
 	}
 	
 	public static Spline pathToSpline(Path path, Canvas canvas, Frame rotFrame) {
+		Handler.getLogger().info("Creating spline");
 		SplineMotionCP<?>[] motions = new SplineMotionCP[path.getPath().size()];
 		for(int i = 0;i < path.getPath().size();i++) {
 			Node node = path.getPath().get(i);
 			Frame nFrame = vectorToFrame(canvas.toWorld(node.getPos()), rotFrame);
 			motions[i] = lin(nFrame);
+			if(node.isBlend())motions[i].setBlendingRel(1);
 		}
 		return new Spline(motions);
 	}
