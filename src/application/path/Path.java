@@ -1,4 +1,4 @@
-package application.parser.path;
+package application.path;
 
 import java.awt.geom.Rectangle2D;
 import java.util.List;

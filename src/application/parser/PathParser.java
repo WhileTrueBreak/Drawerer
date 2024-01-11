@@ -7,8 +7,8 @@ import java.util.List;
 
 import com.kuka.nav.geometry.Vector2D;
 
-import application.parser.path.Node;
-import application.parser.path.Path;
+import application.path.Node;
+import application.path.Path;
 import application.utils.Handler;
 import application.utils.MathHelper;
 

@@ -15,8 +15,8 @@ import com.kuka.roboticsAPI.motionModel.RobotMotion;
 import com.kuka.roboticsAPI.motionModel.Spline;
 import com.kuka.roboticsAPI.motionModel.SplineMotionCP;
 
-import application.parser.path.Node;
-import application.parser.path.Path;
+import application.path.Node;
+import application.path.Path;
 import application.utils.Handler;
 
 public class RobotController {

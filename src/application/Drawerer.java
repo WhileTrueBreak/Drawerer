@@ -29,7 +29,7 @@ import com.kuka.task.ITaskLogger;
 
 import application.parser.FileReader;
 import application.parser.PathParser;
-import application.parser.path.Path;
+import application.path.Path;
 import application.robotControl.Canvas;
 import application.robotControl.RobotController;
 import application.utils.Handler;

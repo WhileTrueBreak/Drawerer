@@ -4,8 +4,8 @@ import java.io.IOException;
 import java.util.List;
 
 import application.parser.PathParser;
-import application.parser.path.Node;
-import application.parser.path.Path;
+import application.path.Node;
+import application.path.Path;
 
 public class test {
 
