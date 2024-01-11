@@ -24,6 +24,7 @@ import com.kuka.roboticsAPI.geometricModel.World;
 import com.kuka.roboticsAPI.motionModel.IMotionContainer;
 import com.kuka.roboticsAPI.motionModel.LIN;
 import com.kuka.roboticsAPI.motionModel.Spline;
+import com.kuka.roboticsAPI.motionModel.SplineOrientationType;
 import com.kuka.roboticsAPI.motionModel.controlModeModel.CartesianImpedanceControlMode;
 import com.kuka.task.ITaskLogger;
 
@@ -199,7 +200,7 @@ public class Drawerer extends RoboticsAPIApplication{
 //			splines.add(RobotController.framesToSpline(tempFrames));
 //		}
 //
-//		gripper.move(lin(originUpFrame).setCartVelocity(300));
+//		gripper.move(lin(originUpFrame).setCartVelocity(200));
 //		drawSplines(splines, startLocs, canvas, originFrame);
 		
 //		List<Path> paths = PathParser.parsePathV2(resPath+"/font.txt");
