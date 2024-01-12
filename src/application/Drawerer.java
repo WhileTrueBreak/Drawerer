@@ -172,6 +172,7 @@ public class Drawerer extends RoboticsAPIApplication{
 		return new PathPlan(motions, startLocs);
 	}
 	
+	@SuppressWarnings("unused")
 	private PathPlan createPathPlanV2(List<String> file, Frame originFrame, Canvas canvas) {
 		List<MotionBatch> motions = new ArrayList<MotionBatch>();
 		List<Vector2D> startLocs = new ArrayList<Vector2D>();
