@@ -239,7 +239,7 @@ public class Drawerer extends RoboticsAPIApplication{
 			}
 			MotionBatch motionBatch = new MotionBatch(pathMotions.toArray(new RobotMotion<?>[pathMotions.size()]));
 			motions.add(motionBatch);
-			startLocs.add(paths.get(i).getPath().get(0).getPos());
+			startLocs.add(paths.get(n).getPath().get(0).getPos());
 		}
 		
 //		List<String> file = FileReader.readFile(resPath+"/newyears_mirror.txt");
