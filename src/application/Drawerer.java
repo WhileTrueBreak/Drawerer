@@ -192,8 +192,8 @@ public class Drawerer extends RoboticsAPIApplication{
 		List<Path> paths = PathParser.parsePathV2(file);
 
 		Vector3D v = Vector3D.of(10,0,0);
-		for(int i=0;i<paths.size();i++) {
-			Path path = paths.get(i);
+		for(int n=0;n<paths.size();n++) {
+			Path path = paths.get(n);
 			Rectangle2D bounds = path.getBounds();
 			List<RobotMotion<?>> pathMotions = new ArrayList<RobotMotion<?>>();
 			List<Vector3D> points = new ArrayList<Vector3D>();
