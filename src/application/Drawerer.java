@@ -152,7 +152,7 @@ public class Drawerer extends RoboticsAPIApplication{
 					Vector3D currDir = currPos.subtract(prevPos);
 					if(prevDir != null) {
 						double angle = currDir.angleRad(prevDir);
-						double blend = MathHelper.qerp(1,0.8,0,MathHelper.clamp(angle/(4*Math.PI/5),0,1));
+						double blend = MathHelper.qerp(1,0.8,0,MathHelper.clamp(angle/(Math.PI/4),0,1));
 						pathMotions[j-1].setBlendingRel(blend);
 					}
 					prevDir = currDir;
