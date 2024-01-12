@@ -283,7 +283,8 @@ public class Drawerer extends RoboticsAPIApplication{
 //		}
 
 		gripper.move(lin(originUpFrame).setCartVelocity(100));
-		
+
+		logger.info("Paths: " + motions.size());
 		logger.info("Start Drawing");
 		for(int i = 0;i < startLocs.size();i++) {
 			logger.info("Start path "+i);
