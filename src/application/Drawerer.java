@@ -203,7 +203,7 @@ public class Drawerer extends RoboticsAPIApplication{
 					continue;
 				}
 				controlPoints.add(currPos);	
-				points.addAll(Bezier.bezierToVectors(controlPoints, (int) Math.ceil(Bezier.approxBezierLength(controlPoints, 100))));
+				points.addAll(Bezier.bezierToVectors(controlPoints, (int) Math.ceil(Bezier.approxBezierLength(controlPoints, 100)/6)));
 				controlPoints.clear();
 				controlPoints.add(currPos);
 			}
