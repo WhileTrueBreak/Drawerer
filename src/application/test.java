@@ -1,17 +1,11 @@
 package application;
 
-import java.awt.geom.Rectangle2D;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 import com.kuka.math.geometry.Vector3D;
-import com.kuka.nav.geometry.Vector2D;
 
-import application.parser.FileReader;
-import application.parser.PathParser;
-import application.path.Node;
-import application.path.Path;
 import application.utils.Bezier;
 
 public class test {
@@ -28,6 +22,7 @@ public class test {
 		
 		double length = Bezier.approxBezierLength(controlPoints, 100);
 		System.out.println(length);
+		
 	}
 
 }
