@@ -264,25 +264,25 @@ public class Drawerer extends RoboticsAPIApplication{
 		}
 		
 		logger.info("Calibrating point 1");
-		Frame originFrame = RobotController.calibrateFrame(gripper, 150);
+		Frame originFrame = RobotController.calibrateFrame(robot, gripper, 150);
 		penUp();
 		Frame originUpFrame = robot.getCurrentCartesianPosition(gripper.getFrame("/TCP"));
 		Vector3D origin = RobotController.frameToVector(originFrame);
 		logger.info(String.format("Origin: %s", origin.toString()));
 
 		logger.info("Moving to Origin up");
-		RobotController.safeMove(lin(originUpFrame).setJointVelocityRel(0.2));
+		RobotController.safeMove(gripper, lin(originUpFrame).setJointVelocityRel(0.2));
 		gripper.move(linRel(0, 50, 0).setJointVelocityRel(0.2));
 		logger.info("Calibrating point 2");
-		Vector3D up = RobotController.frameToVector(RobotController.calibrateFrame(gripper, 150));
+		Vector3D up = RobotController.frameToVector(RobotController.calibrateFrame(robot, gripper, 150));
 		penUp();
 		logger.info(String.format("Up: %s", up.toString()));
 
 		logger.info("Moving to Origin up");
-		RobotController.safeMove(lin(originUpFrame).setJointVelocityRel(0.2));
+		RobotController.safeMove(gripper, lin(originUpFrame).setJointVelocityRel(0.2));
 		gripper.move(linRel(-50, 0,0).setJointVelocityRel(0.2));
 		logger.info("Calibrating point 3");
-		Vector3D right = RobotController.frameToVector(RobotController.calibrateFrame(gripper, 150));
+		Vector3D right = RobotController.frameToVector(RobotController.calibrateFrame(robot, gripper, 150));
 		penUp();
 		logger.info(String.format("Right: %s", right.toString()));
 		
