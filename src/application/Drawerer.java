@@ -309,7 +309,7 @@ public class Drawerer extends RoboticsAPIApplication{
 		mF.setLEDBlue(false);
 		
 		double buffer = 0.01;
-		double scale = 0.2;
+		double scale = 0.15;
 		double charHeight = scale;
 		double spacing = scale/10;
 		double currentX = buffer;
