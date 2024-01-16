@@ -296,7 +296,7 @@ public class Drawerer extends RoboticsAPIApplication{
 		Vector3D diag = canvasPlane.getA().add(canvasPlane.getB());
 		logger.info("Diagonal vector: " + diag.toString());
 		logger.info("Moving to top right");
-		double dist = RobotController.maxMove(diag);
+		double dist = RobotController.maxMove(gripper, diag);
 		logger.info(String.format("Found max at top right: %s", diag.toString()));
 		
 		// gets top right frame
