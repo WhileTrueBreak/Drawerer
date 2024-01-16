@@ -309,15 +309,15 @@ public class Drawerer extends RoboticsAPIApplication{
 		mF.setLEDBlue(false);
 		
 		double scale = 0.1;
-		double charHeight = 0.1;
-		double spacing = 0.01;
+		double charHeight = scale;
+		double spacing = scale/10;
 		double currentX = 0;
 		double currentY = 1 - charHeight;
 		
 		String resPath = FileReader.findUniqueFolder("res", "..");
 		
 		TextManager.setFontPath(resPath+"/font");
-		TextManager.setBaseScale(0.1);
+		TextManager.setBaseScale(scale);
 		
 		String chars = "abcdefghijklmnopqrstuvwxyz";
 		for(int i = 0;i < chars.length();i++) {
