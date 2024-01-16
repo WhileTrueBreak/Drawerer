@@ -320,7 +320,7 @@ public class Drawerer extends RoboticsAPIApplication{
 		TextManager.setFontPath(resPath+"/font");
 		TextManager.setBaseScale(scale);
 		
-		String chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+		String chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 		for(int i = 0;i < chars.length();i++) {
 			logger.info("Loading char: " + chars.charAt(i));
 			TextManager.loadChar(chars.charAt(i), canvas);
