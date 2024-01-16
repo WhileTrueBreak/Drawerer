@@ -345,7 +345,7 @@ public class Drawerer extends RoboticsAPIApplication{
 		
 		logger.info("Reading Path File");
 		String resPath = FileReader.findUniqueFolder("res", "..");
-		List<String> file = FileReader.readFile(resPath+"/font/B_27.txt");
+		List<String> file = FileReader.readFile(resPath+"/font/66.txt");
 
 //		PathPlan plan = createPathPlanV1(file, originFrame, canvas);
 		PointPath pointPath1 = convPointsV2(file, canvas);
