@@ -337,6 +337,7 @@ public class Drawerer extends RoboticsAPIApplication{
 			pointPath.offsetPaths(-pointPath.getBounds().getX(), 0);
 			pointPath.offsetPaths(currentX, currentY);
 			logger.info(c + ": " + pointPath.getBounds().toString());
+			logger.info(c + ": " + Vector2D.of(pointPath.getBounds().getMaxX(), pointPath.getBounds().getMaxY()));
 			if(!drawArea.contains(pointPath.getBounds())) {
 				pointPath.offsetPaths(-currentX, -currentY);
 				currentX = buffer;
