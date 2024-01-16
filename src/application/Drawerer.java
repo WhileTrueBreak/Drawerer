@@ -342,7 +342,7 @@ public class Drawerer extends RoboticsAPIApplication{
 				pointPath.offsetPaths(currentX, currentY);
 				if(!drawArea.contains(pointPath.getBounds())) break;
 			}
-			PathPlan pathPlan = pointPath.toPathPlan(originFrame, canvas);
+			PathPlan pathPlan = pointPath.toPathPlan(robot, originFrame, canvas);
 			currentX += pointPath.getBounds().getWidth()+spacing;
 			drawPathPlan(pathPlan, originFrame, canvas);
 		}
