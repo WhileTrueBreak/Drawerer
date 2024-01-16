@@ -134,7 +134,7 @@ public class PointPath {
 					continue;
 				}
 				controlPoints.add(currPos);	
-				points.addAll(Bezier.bezierToVector2Ds(controlPoints, (int) Math.ceil(Bezier.approxBezierLength2D(controlPoints, 100)*canvas.getSize()*scale/5)));
+				points.addAll(Bezier.bezierToVector2Ds(controlPoints, (int) Math.ceil(Bezier.approxBezierLength2D(controlPoints, 100)*canvas.getSize()*scale/3)));
 				controlPoints.clear();
 				controlPoints.add(currPos);
 			}
