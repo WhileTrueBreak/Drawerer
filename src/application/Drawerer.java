@@ -109,7 +109,7 @@ public class Drawerer extends RoboticsAPIApplication{
 			logger.info("Start path "+i);
 			Vector3D first = canvas.toWorld(plan.getStartLocs().get(i)).add(RobotController.frameToVector(originFrame)).add(v);
 			logger.info("Moving to first frame");
-			gripper.move(lin(RobotController.vectorToFrame(first, originFrame)).setCartVelocity(300));
+			gripper.move(lin(RobotController.vectorToFrame(first, originFrame)).setCartVelocity(200));
 			penDown();
 			logger.info("Start path");
 			springyMove(plan.getMotions().get(i));
