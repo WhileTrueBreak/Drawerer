@@ -220,6 +220,7 @@ public class Drawerer extends RoboticsAPIApplication{
 		
 		String l2 = "New Year";
 		List<PointPath> l2PointPaths = new ArrayList<PointPath>();
+		currentY -= charHeight;
 		lineLength = spacing*(l2.length()-1);
 		xpos = 0;
 		for(int i = 0;i < l2.length();i++) {
