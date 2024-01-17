@@ -204,6 +204,7 @@ public class Drawerer extends RoboticsAPIApplication{
 			if(l1.charAt(i) == ' ') {
 				lineLength += spacing;
 				xpos += spacing + spacing;
+				continue;
 			}
 			PointPath pointPath = TextManager.getCharPath(l1.charAt(i));
 			pointPath.scalePaths(scale);
@@ -225,6 +226,7 @@ public class Drawerer extends RoboticsAPIApplication{
 			if(l2.charAt(i) == ' ') {
 				lineLength += spacing;
 				xpos += spacing + spacing;
+				continue;
 			}
 			PointPath pointPath = TextManager.getCharPath(l2.charAt(i));
 			pointPath.scalePaths(scale);
