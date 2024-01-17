@@ -242,10 +242,10 @@ public class Drawerer extends RoboticsAPIApplication{
 		}
 
 		for(PointPath pointPath:l1PointPaths) {
-			drawPathPlan(pointPath.toPathPlan(robot, originFrame, canvas, 200), originFrame, canvas);
+			drawPathPlan(pointPath.toPathPlan(robot, originFrame, canvas, 100), originFrame, canvas);
 		}
 		for(PointPath pointPath:l2PointPaths) {
-			drawPathPlan(pointPath.toPathPlan(robot, originFrame, canvas, 200), originFrame, canvas);
+			drawPathPlan(pointPath.toPathPlan(robot, originFrame, canvas, 100), originFrame, canvas);
 		}
 		
 		
