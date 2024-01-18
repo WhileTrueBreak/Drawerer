@@ -223,7 +223,7 @@ public class Drawerer extends RoboticsAPIApplication{
 		
 		String l2 = "New Year";
 		List<PointPath> l2PointPaths = new ArrayList<PointPath>();
-		currentY -= charHeight;
+		currentY -= charHeight + buffer;
 		xpos = 0;
 		for(int i = 0;i < l2.length();i++) {
 			if(l2.charAt(i) == ' ') {
