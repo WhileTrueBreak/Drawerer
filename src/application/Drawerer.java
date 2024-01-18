@@ -15,6 +15,7 @@ import com.kuka.generated.ioAccess.MediaFlangeIOGroup;
 import com.kuka.math.geometry.Vector3D;
 import com.kuka.roboticsAPI.applicationModel.RoboticsAPIApplication;
 import com.kuka.roboticsAPI.deviceModel.LBR;
+import com.kuka.roboticsAPI.deviceModel.kmp.KmpOmniMove;
 import com.kuka.roboticsAPI.geometricModel.CartDOF;
 import com.kuka.roboticsAPI.geometricModel.Frame;
 import com.kuka.roboticsAPI.geometricModel.Tool;
@@ -31,6 +32,8 @@ import application.robotControl.RobotController;
 import application.utils.Handler;
 
 public class Drawerer extends RoboticsAPIApplication{
+	@Inject
+	private KmpOmniMove kmp;
 	@Inject
 	private LBR robot;
 	@Inject 
@@ -50,6 +53,8 @@ public class Drawerer extends RoboticsAPIApplication{
 	
 	@Override
 	public void initialize() {
+		
+		logger.info("Voltage: "+kmp.getMobilePlatformBatteryState().getMaxCellVoltage());
 		
 		Handler.setRobot(robot);
 		Handler.setGripper(gripper2F1);
@@ -174,7 +179,7 @@ public class Drawerer extends RoboticsAPIApplication{
 		logger.info("Reading file");
 		String resPath = FileReader.findUniqueFolder("res", "..");
 		
-		List<String> file = FileReader.readFile(resPath+"/frieren.txt");
+		List<String> file = FileReader.readFile(resPath+"/sparkle.txt");
 		PointPath pointPath = PointPath.createPointPathsV2(file, canvas, 1);
 		PathPlan pathPlan = pointPath.toPathPlan(robot, originFrame, canvas, 200);
 		drawPathPlan(pathPlan, originFrame, canvas);
