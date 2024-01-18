@@ -191,7 +191,7 @@ public class Drawerer extends RoboticsAPIApplication{
 		double spacing = scale/10;
 		double currentY = 0.5-charHeight-buffer;
 		
-		TextManager.setFontPath(resPath+"/font");
+		TextManager.setFontPath(resPath+"/font/arialnarrow");
 		TextManager.setBaseScale(scale);
 		
 		String chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
