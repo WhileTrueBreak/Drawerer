@@ -215,7 +215,7 @@ public class Drawerer2 extends RoboticsAPIApplication{
 			List<PointPath> PointPaths = new ArrayList<PointPath>();
 			for(int i = 0;i < line.length();i++) {
 				if(line.charAt(i) == ' ') {
-					currentX += spacing + spacing;
+					currentX -= spacing*3;
 					continue;
 				}
 				PointPath pointPath = TextManager.getCharPath(line.charAt(i));
