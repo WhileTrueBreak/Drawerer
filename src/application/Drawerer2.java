@@ -34,7 +34,7 @@ import application.text.TextManager;
 import application.utils.Handler;
 
 /*
- * Writes monash innovation labs mirrored
+ * Writes masters of\n advenced\n robotics\n engineering\n mirrored
  */
 
 public class Drawerer2 extends RoboticsAPIApplication{
@@ -193,7 +193,7 @@ public class Drawerer2 extends RoboticsAPIApplication{
 		double scale = 0.15;
 		double charHeight = scale;
 		double spacing = scale/10;
-		double currentY = 0.8-charHeight-buffer;
+		double currentY = 1-charHeight-buffer;
 		double currentX;
 		
 		TextManager.setFontPath(resPath+"/font/arialnarrow");
