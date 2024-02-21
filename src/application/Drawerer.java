@@ -37,7 +37,7 @@ import application.utils.Handler;
  * Drawing random stuff mirrored
  */
 
-public class Drawerer4 extends RoboticsAPIApplication{
+public class Drawerer extends RoboticsAPIApplication{
 	@Inject
 	private LBR robot;
 	@Inject 
@@ -97,11 +97,11 @@ public class Drawerer4 extends RoboticsAPIApplication{
 	}
 
 	private void penUp(){
-		gripper.move(linRel(Drawerer4.upVector.getX(), Drawerer4.upVector.getY(), Drawerer4.upVector.getZ(), World.Current.getRootFrame()).setMode(springRobot).setCartVelocity(20));
+		gripper.move(linRel(Drawerer.upVector.getX(), Drawerer.upVector.getY(), Drawerer.upVector.getZ(), World.Current.getRootFrame()).setMode(springRobot).setCartVelocity(20));
 	}
 	
 	private void penDown(){
-		gripper.move(linRel(Drawerer4.downVector.getX()*2, Drawerer4.downVector.getY()*2, Drawerer4.downVector.getZ()*2, World.Current.getRootFrame()).setMode(springRobot).setCartVelocity(20));
+		gripper.move(linRel(Drawerer.downVector.getX()*2, Drawerer.downVector.getY()*2, Drawerer.downVector.getZ()*2, World.Current.getRootFrame()).setMode(springRobot).setCartVelocity(20));
 	}
 	
 	private void springyMove(RobotMotion<?> motion){
@@ -111,7 +111,7 @@ public class Drawerer4 extends RoboticsAPIApplication{
 	private void drawPathPlan(PathPlan plan, Frame originFrame, Canvas canvas) {
 		logger.info("Paths: " + plan.getMotions().size());
 		logger.info("Start Drawing");
-		Vector3D v = Vector3D.of(-Drawerer4.PEN_UP_DIST,0,0);
+		Vector3D v = Vector3D.of(-Drawerer.PEN_UP_DIST,0,0);
 		for(int i = 0;i < plan.getStartLocs().size();i++) {
 			logger.info("Start path "+i);
 			Vector3D first = canvas.toWorld(plan.getStartLocs().get(i)).add(RobotController.frameToVector(originFrame)).add(v);
@@ -138,17 +138,17 @@ public class Drawerer4 extends RoboticsAPIApplication{
 		
 		logger.info("Calibrating point 1");
 		Frame originFrame = RobotController.calibrateFrame(robot, gripper, 150, 10);
-		gripper.move(linRel(0,0, -Drawerer4.PEN_UP_DIST, gripper.getFrame("/TCP")).setJointVelocityRel(0.2));
+		gripper.move(linRel(0,0, -Drawerer.PEN_UP_DIST, gripper.getFrame("/TCP")).setJointVelocityRel(0.2));
 		Frame originUpFrame = robot.getCurrentCartesianPosition(gripper.getFrame("/TCP"));
 		Vector3D origin = RobotController.frameToVector(originFrame);
 		Vector3D originUp = RobotController.frameToVector(originUpFrame);
 		logger.info(String.format("Origin: %s", origin.toString()));
 
-		Drawerer4.upVector = originUp.subtract(origin).normalize().multiply(Drawerer4.PEN_UP_DIST);
-		Drawerer4.downVector = origin.subtract(originUp).normalize().multiply(Drawerer4.PEN_DOWN_DIST);
+		Drawerer.upVector = originUp.subtract(origin).normalize().multiply(Drawerer.PEN_UP_DIST);
+		Drawerer.downVector = origin.subtract(originUp).normalize().multiply(Drawerer.PEN_DOWN_DIST);
 
-		logger.info(String.format("up: %s", Drawerer4.upVector.toString()));
-		logger.info(String.format("down: %s", Drawerer4.downVector.toString()));
+		logger.info(String.format("up: %s", Drawerer.upVector.toString()));
+		logger.info(String.format("down: %s", Drawerer.downVector.toString()));
 
 		logger.info("Moving to Origin up");
 		RobotController.safeMove(gripper, lin(originUpFrame).setJointVelocityRel(0.2));
