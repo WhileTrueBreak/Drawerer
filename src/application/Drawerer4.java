@@ -39,8 +39,6 @@ import application.utils.Handler;
 
 public class Drawerer4 extends RoboticsAPIApplication{
 	@Inject
-	private SunriseOmniMoveMobilePlatform kmp;
-	@Inject
 	private LBR robot;
 	@Inject 
 	private Gripper2F gripper2F1;
@@ -129,7 +127,7 @@ public class Drawerer4 extends RoboticsAPIApplication{
 		// Calibration sequence
 		mF.setLEDBlue(true);
 		logger.info("Moving to bottom left");
-		try {
+		try {	
 			gripper.move(lin(getApplicationData().getFrame("/bottom_left")).setJointVelocityRel(0.2));
 		} catch (Exception e) {
 			gripper.move(ptp(getApplicationData().getFrame("/bottom_left")).setJointVelocityRel(0.2));
@@ -168,8 +166,11 @@ public class Drawerer4 extends RoboticsAPIApplication{
 		Vector3D diag = canvasPlane.getA().add(canvasPlane.getB());
 		logger.info("Diagonal vector: " + diag.toString());
 		logger.info("Moving to top right");
-		double dist = RobotController.maxMove(gripper, diag);
-		logger.info(String.format("Found max at top right: %s", diag.toString()));
+//		double dist = RobotController.maxMove(gripper, diag);
+//		logger.info(String.format("Found max at top right: %s", diag.toString()));
+		double dist = 40;
+		Vector3D moveVector = diag.multiply(dist);
+		gripper.move(linRel(moveVector.getY(), moveVector.getZ(), moveVector.getX()).setJointVelocityRel(0.3));
 		
 		// gets top right frame
 		Vector3D top_right = RobotController.frameToVector(robot.getCurrentCartesianPosition(gripper.getFrame("/TCP")));
