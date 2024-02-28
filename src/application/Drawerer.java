@@ -83,7 +83,7 @@ public class Drawerer extends RoboticsAPIApplication{
 		springRobot.parametrize(CartDOF.B).setStiffness(300);
 		springRobot.parametrize(CartDOF.A).setStiffness(300);
 		springRobot.setReferenceSystem(World.Current.getRootFrame());
-		springRobot.parametrize(CartDOF.ALL).setDamping(0.4);
+		springRobot.parametrize(CartDOF.ALL).setDamping(0.6);
 		
 		// Inits the Robot
 		gripper.attachTo(robot.getFlange());
@@ -198,14 +198,14 @@ public class Drawerer extends RoboticsAPIApplication{
 		gripper.move(linRel(moveVector.getX(), moveVector.getY(), moveVector.getZ(), World.Current.getRootFrame()).setJointVelocityRel(0.3));
 		logger.info("Calibrating bottom right");
 		ForceSensorData forceSensorData = robot.getExternalForceTorque(gripper.getFrame("/TCP"),gripper.getFrame("/TCP"));
-		Vector3D bottomRightDown = RobotController.frameToVector(RobotController.calibrateFrame(robot, gripper, 150, forceSensorData.getForce().getZ()+10));
+		Vector3D bottomRightDown = RobotController.frameToVector(RobotController.calibrateFrame(robot, gripper, 150, forceSensorData.getForce().getZ()+20));
 		penUp();
 		gripper.move(lin(originUpFrame).setJointVelocityRel(0.2));
 		moveVector = canvasPlane.getB().multiply(dist);
 		gripper.move(linRel(moveVector.getX(), moveVector.getY(), moveVector.getZ(), World.Current.getRootFrame()).setJointVelocityRel(0.3));
 		logger.info("Calibrating top left");
 		forceSensorData = robot.getExternalForceTorque(gripper.getFrame("/TCP"),gripper.getFrame("/TCP"));
-		Vector3D topLeftDown = RobotController.frameToVector(RobotController.calibrateFrame(robot, gripper, 150, forceSensorData.getForce().getZ()+10));
+		Vector3D topLeftDown = RobotController.frameToVector(RobotController.calibrateFrame(robot, gripper, 150, forceSensorData.getForce().getZ()+20));
 		penUp();
 		
 		canvasPlane = Canvas.getCanvasPlane(origin, topLeftDown, bottomRightDown);
